@@ -1,4 +1,4 @@
-package ca.josuelubaki.tmdbclient.data
+package ca.josuelubaki.tmdbclient.data.model.artist
 
 
 import com.google.gson.annotations.SerializedName
