@@ -24,12 +24,16 @@ class ArtistRepositoryImpl(
         return newListOfArtists
     }
 
+    /**
+     * method to get artists from remote
+     * @return List<Artist>
+     */
     private suspend fun getArtistsFromAPI(): List<Artist> {
         lateinit var artistList: List<Artist>
 
         try {
             val response = artistRemoteDatasource.getArtists()
-            val body = response?.body()
+            val body = response.body()
 
             if (body != null) {
                 artistList = body.artists
@@ -41,6 +45,10 @@ class ArtistRepositoryImpl(
         return artistList
     }
 
+    /**
+     * method to get artists from Database otherwise get from API
+     * @return List<Artist>
+     */
     private suspend fun getArtistsFromDB() : List<Artist> {
         lateinit var artistList: List<Artist>
 
@@ -60,6 +68,10 @@ class ArtistRepositoryImpl(
         return artistList
     }
 
+    /**
+     * method to get artists from cache otherwise get from Database
+     * @return List<Artist>
+     */
     private suspend fun getArtistsFromCache() : List<Artist> {
         lateinit var artistList: List<Artist>
 
