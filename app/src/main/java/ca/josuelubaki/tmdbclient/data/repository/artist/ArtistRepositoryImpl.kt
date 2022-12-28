@@ -1,4 +1,4 @@
-package ca.josuelubaki.tmdbclient.data.repository.artist.datasourceImpl
+package ca.josuelubaki.tmdbclient.data.repository.artist
 
 import android.util.Log
 import ca.josuelubaki.tmdbclient.data.model.artist.Artist

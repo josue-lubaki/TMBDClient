@@ -1,4 +1,4 @@
-package ca.josuelubaki.tmdbclient.data.repository.tvshow.datasourceImpl
+package ca.josuelubaki.tmdbclient.data.repository.tvshow
 
 import ca.josuelubaki.tmdbclient.data.model.tvshow.TvShow
 import ca.josuelubaki.tmdbclient.data.repository.tvshow.datasource.TvShowCacheDatasource
