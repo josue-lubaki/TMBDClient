@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="@tools:sample/lorem"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="@color/colorWhite"
                     android:textSize="19sp"
                     android:layout_gravity="center"
                     android:textStyle="bold" />
