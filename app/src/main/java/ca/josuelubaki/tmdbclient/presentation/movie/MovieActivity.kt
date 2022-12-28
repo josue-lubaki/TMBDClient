@@ -3,6 +3,9 @@ package ca.josuelubaki.tmdbclient.presentation.movie
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -58,6 +61,39 @@ class MovieActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
                 Log.e("MYTAG", "No data available")
             }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater : MenuInflater = menuInflater
+        inflater.inflate(R.menu.update, menu)
+        return true
+    }
+
+    @SuppressWarnings("notifyDataSetChanged")
+    private fun updateMovies() {
+        binding.movieProgressBar.visibility = View.VISIBLE
+        val responseLiveData = movieViewModel.updateMovies()
+        responseLiveData.observe(this) {
+            if (it != null) {
+                movieAdapter.setList(it)
+                movieAdapter.notifyDataSetChanged()
+                binding.movieProgressBar.visibility = View.GONE
+            } else {
+                binding.movieProgressBar.visibility = View.GONE
+                Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
+                Log.e("MYTAG", "No data available")
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_update -> {
+                updateMovies()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
