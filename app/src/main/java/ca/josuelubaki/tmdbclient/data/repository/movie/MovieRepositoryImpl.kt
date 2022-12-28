@@ -1,4 +1,4 @@
-package ca.josuelubaki.tmdbclient.data.repository.movie.datasourceImpl
+package ca.josuelubaki.tmdbclient.data.repository.movie
 
 import android.util.Log
 import ca.josuelubaki.tmdbclient.data.model.movie.Movie
