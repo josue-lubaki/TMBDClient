@@ -60,6 +60,7 @@ This API allows you to access the TMDb's database of movies and TV shows. You ca
 
 ## Architecture
 <img src="https://i.imgur.com/v5EiM83.jpg" width="500">
-credits : 
-- [Medium Article](https://medium.com/android-dev-hacks/detailed-guide-on-android-clean-architecture-9eab262a9011)
-- [Course on Udemy](https://www.udemy.com/course/android-architecture-componentsmvvm-with-dagger-retrofit/)
+credits :
+
+* [Medium Article](https://medium.com/android-dev-hacks/detailed-guide-on-android-clean-architecture-9eab262a9011)
+* [Course on Udemy](https://www.udemy.com/course/android-architecture-componentsmvvm-with-dagger-retrofit/)
