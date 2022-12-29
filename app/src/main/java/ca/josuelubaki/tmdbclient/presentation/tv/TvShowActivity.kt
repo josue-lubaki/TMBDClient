@@ -2,10 +2,10 @@ package ca.josuelubaki.tmdbclient.presentation.tv
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,23 +34,6 @@ class TvShowActivity : AppCompatActivity() {
         displayPopularTvShows()
     }
 
-    @SuppressWarnings("notifyDataSetChanged")
-    private fun displayPopularTvShows() {
-        binding.tvShowProgressBar.visibility = View.VISIBLE
-        val responseLiveData = tvShowViewModel.getTvShows()
-        responseLiveData.observe(this) {
-            if (it != null) {
-                tvShowAdapter.setList(it)
-                tvShowAdapter.notifyDataSetChanged()
-                binding.tvShowProgressBar.visibility = View.GONE
-            }
-            else {
-                binding.tvShowProgressBar.visibility = View.GONE
-                Log.e("MYTAG", "No data available")
-            }
-        }
-    }
-
     private fun configuration() {
         // init view model
         tvShowViewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
@@ -77,6 +60,23 @@ class TvShowActivity : AppCompatActivity() {
     }
 
     @SuppressWarnings("notifyDataSetChanged")
+    private fun displayPopularTvShows() {
+        binding.tvShowProgressBar.visibility = View.VISIBLE
+        val responseLiveData = tvShowViewModel.getTvShows()
+        responseLiveData.observe(this) {
+            if (it != null) {
+                tvShowAdapter.setList(it)
+                tvShowAdapter.notifyDataSetChanged()
+                binding.tvShowProgressBar.visibility = View.GONE
+            }
+            else {
+                binding.tvShowProgressBar.visibility = View.GONE
+                Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    @SuppressWarnings("notifyDataSetChanged")
     private fun updateTvShows() {
         binding.tvShowProgressBar.visibility = View.VISIBLE
         val responseLiveData = tvShowViewModel.updateTvShows()
@@ -88,7 +88,7 @@ class TvShowActivity : AppCompatActivity() {
             }
             else {
                 binding.tvShowProgressBar.visibility = View.GONE
-                Log.e("MYTAG", "No data available")
+                Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
             }
         }
     }
