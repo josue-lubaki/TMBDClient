@@ -55,7 +55,6 @@ class MovieActivity : AppCompatActivity() {
                 movieAdapter.setList(it)
                 movieAdapter.notifyDataSetChanged()
                 binding.movieProgressBar.visibility = View.GONE
-                Log.i("MYTAG", "displayPopularMovies: $it")
             } else {
                 binding.movieProgressBar.visibility = View.GONE
                 Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
