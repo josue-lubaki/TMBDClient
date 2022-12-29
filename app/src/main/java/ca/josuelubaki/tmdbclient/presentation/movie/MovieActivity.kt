@@ -1,10 +1,10 @@
 package ca.josuelubaki.tmdbclient.presentation.movie
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.util.AttributeSet
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -32,6 +32,9 @@ class MovieActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
         (application as Injector).createMovieSubComponent().inject(this)
 
+        // change title of the action bar
+        supportActionBar?.title = "Movies"
+
         configuration()
         displayPopularMovies()
     }
@@ -46,6 +49,21 @@ class MovieActivity : AppCompatActivity() {
         binding.movieRecyclerView.adapter = movieAdapter
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.update, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_update -> {
+                updateMovies()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     @SuppressWarnings("notifyDataSetChanged")
     private fun displayPopularMovies() {
         binding.movieProgressBar.visibility = View.VISIBLE
@@ -58,15 +76,8 @@ class MovieActivity : AppCompatActivity() {
             } else {
                 binding.movieProgressBar.visibility = View.GONE
                 Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
-                Log.e("MYTAG", "No data available")
             }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater : MenuInflater = menuInflater
-        inflater.inflate(R.menu.update, menu)
-        return true
     }
 
     @SuppressWarnings("notifyDataSetChanged")
@@ -81,18 +92,8 @@ class MovieActivity : AppCompatActivity() {
             } else {
                 binding.movieProgressBar.visibility = View.GONE
                 Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
-                Log.e("MYTAG", "No data available")
             }
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_update -> {
-                updateMovies()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 }

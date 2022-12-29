@@ -1,54 +1,211 @@
 <layout>
-    <LinearLayout
+    <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:weightSum="3.0"
-        tools:context=".presentation.HomeActivity"
-        >
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/movie_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.0"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/btn_rounded"
-            android:padding="15dp"
-            android:text="@string/movies"
-            android:textSize="50sp" />
+        android:layout_height= "match_parent"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".presentation.HomeActivity">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/tv_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.0"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/btn_rounded"
-            android:padding="15dp"
-            android:text="@string/tv_shows"
-            android:textSize="50sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/artists_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.0"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/btn_rounded"
-            android:padding="15dp"
-            android:text="@string/artists"
-            android:textSize="50sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                style="@style/Theme.TMDBClient"
+                />
+
+            <TextView
+                android:id="@+id/tv_welcome_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descriptionAppSub"
+                android:layout_below="@+id/tv_welcome"
+                android:textSize="14sp"
+                android:textColor="@color/colorWhite"
+                android:textAlignment="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                style="@style/Theme.TMDBClient"
+                />
+
+            <TextView
+                android:id="@+id/tv_film"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/film"
+                android:textColor="@color/colorWhite"
+                android:layout_below="@+id/tv_welcome_message"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                style="@style/Theme.TMDBClient"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/tv_film"
+                android:elevation="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="@dimen/medium"
+                >
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view_film"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    android:layout_margin="@dimen/medium"
+                    app:lottie_rawRes="@raw/video"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/movie_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_movie"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/movies"
+                android:elevation="10dp"
+                android:shadowColor="@color/colorWhite"
+                android:shadowRadius="90"
+                android:shadowDx="60"
+                android:shadowDy="0"
+                android:textSize="14sp" />
+
+
+
+            <TextView
+                android:id="@+id/tv_tvshow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvshow"
+                android:textColor="@color/colorWhite"
+                android:layout_below="@+id/movie_button"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                style="@style/Theme.TMDBClient"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_tvshow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/tv_tvshow"
+                android:elevation="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="@dimen/medium"
+                >
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    android:layout_margin="@dimen/medium"
+                    app:lottie_rawRes="@raw/uploading"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tv_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/card_tvshow"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_rounded"
+                android:padding="15dp"
+                android:text="@string/tv_shows"
+                android:elevation="10dp"
+                android:shadowColor="@color/colorWhite"
+                android:shadowRadius="90"
+                android:shadowDx="-90"
+                android:shadowDy="0"
+                android:textSize="14sp" />
+
+
+
+            <TextView
+                android:id="@+id/tv_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/artist"
+                android:textColor="@color/colorWhite"
+                android:layout_below="@+id/tv_button"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                style="@style/Theme.TMDBClient"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/tv_artist"
+                android:elevation="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="@dimen/medium"
+                >
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view_artist"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_margin="@dimen/medium"
+                    app:lottie_rawRes="@raw/profile"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/artists_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                android:layout_below="@+id/card_artist"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_rounded"
+                android:padding="15dp"
+                android:text="@string/artists"
+                android:elevation="10dp"
+                android:shadowColor="@color/colorWhite"
+                android:shadowRadius="90"
+                android:shadowDx="90"
+                android:shadowDy="0"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
 </layout>
