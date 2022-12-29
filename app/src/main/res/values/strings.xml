@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">TMDBClient</string>
+    <string name="app_name">TMDB</string>
     <string name="movies">Movies</string>
     <string name="tv_shows">Tv Shows</string>
     <string name="artists">Artists</string>
     <string name="image">image</string>
     <string name="update">Update</string>
+    <string name="welcome">Welcome to the TMDB Client</string>
+    <string name="descriptionAppSub"><![CDATA[You can see all films, TV Show and your favorite artist]]></string>
+    <string name="film">Get More information about the movies</string>
+    <string name="tvshow">Get More information about a Tv Show</string>
+    <string name="artist">Get More information about the artists</string>
 </resources>
