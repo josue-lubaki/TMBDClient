@@ -1,7 +1,9 @@
 package ca.josuelubaki.tmdbclient.presentation.artist
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -29,6 +31,9 @@ class ArtistActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_artist)
         (application as Injector).createArtistSubComponent().inject(this)
+
+        // change title of the action bar
+        supportActionBar?.title = "Artists"
 
         configuration()
         displayPopularArtists()

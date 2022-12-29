@@ -1,7 +1,9 @@
 package ca.josuelubaki.tmdbclient.presentation.tv
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -29,6 +31,9 @@ class TvShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tv_show)
         (application as Injector).createTvShowSubComponent().inject(this)
+
+        // change title of the action bar
+        supportActionBar?.title = "Tv Show"
 
         configuration()
         displayPopularTvShows()

@@ -1,7 +1,9 @@
 package ca.josuelubaki.tmdbclient.presentation.movie
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -29,6 +31,9 @@ class MovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
         (application as Injector).createMovieSubComponent().inject(this)
+
+        // change title of the action bar
+        supportActionBar?.title = "Movies"
 
         configuration()
         displayPopularMovies()
