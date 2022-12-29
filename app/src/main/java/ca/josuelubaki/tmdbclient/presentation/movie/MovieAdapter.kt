@@ -48,6 +48,8 @@ class MovieViewHolder(private val binding: ListItemBinding) : RecyclerView.ViewH
 
         Glide.with(binding.imageView.context)
             .load(posterURL)
+            .placeholder(R.drawable.image)
+            .error(R.drawable.image)
             .into(binding.imageView)
     }
 }
