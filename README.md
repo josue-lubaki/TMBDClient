@@ -37,9 +37,9 @@ This API allows you to access the TMDb's database of movies and TV shows. You ca
 
 <table border="1">
     <tr>
-        <th> </th>
+        <th> - </th>
         <th> Home Screen </th>
-        <th> </th>
+        <th> - </th>
     </tr>
     <tr>
         <td> </td>
