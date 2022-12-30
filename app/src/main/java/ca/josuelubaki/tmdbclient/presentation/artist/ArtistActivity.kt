@@ -1,9 +1,7 @@
 package ca.josuelubaki.tmdbclient.presentation.artist
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -13,9 +11,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import ca.josuelubaki.tmdbclient.R
 import ca.josuelubaki.tmdbclient.databinding.ActivityArtistBinding
-import ca.josuelubaki.tmdbclient.presentation.di.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class ArtistActivity : AppCompatActivity() {
 
     @Inject
@@ -30,7 +29,6 @@ class ArtistActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_artist)
-        (application as Injector).createArtistSubComponent().inject(this)
 
         // change title of the action bar
         supportActionBar?.title = "Artists"

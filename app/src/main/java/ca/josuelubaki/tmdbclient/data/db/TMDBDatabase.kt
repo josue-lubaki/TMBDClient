@@ -8,7 +8,8 @@ import ca.josuelubaki.tmdbclient.data.model.tvshow.TvShow
 
 @Database(
     entities = [Movie::class, Artist::class, TvShow::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class TMDBDatabase : RoomDatabase() {
 
@@ -17,6 +18,6 @@ abstract class TMDBDatabase : RoomDatabase() {
         abstract fun tvShowDao(): TvShowDao
 
         companion object {
-            val DATABASE_NAME: String = "tmdbclient_db"
+            const val DATABASE_NAME: String = "tmdbclient_db"
         }
 }
