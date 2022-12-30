@@ -10,7 +10,10 @@ class ArtistViewModelFactory(
     private val updateArtistsUseCase: UpdateArtistsUseCase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        @Suppress("UNCHECKED_CAST")
-        return ArtistViewModel(getArtistsUseCase, updateArtistsUseCase) as T
+        if(modelClass.isAssignableFrom(ArtistViewModel::class.java)){
+            @Suppress("UNCHECKED_CAST")
+            return ArtistViewModel(getArtistsUseCase, updateArtistsUseCase) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class : $modelClass")
     }
 }

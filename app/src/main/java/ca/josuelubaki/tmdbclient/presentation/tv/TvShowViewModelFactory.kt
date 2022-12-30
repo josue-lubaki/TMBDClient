@@ -10,7 +10,10 @@ class TvShowViewModelFactory(
     private val updateTvShowsUseCase: UpdateTvShowsUseCase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        @Suppress("UNCHECKED_CAST")
-        return TvShowViewModel(getTvShowsUseCase, updateTvShowsUseCase) as T
+        if(modelClass.isAssignableFrom(TvShowViewModel::class.java)){
+            @Suppress("UNCHECKED_CAST")
+            return TvShowViewModel(getTvShowsUseCase, updateTvShowsUseCase) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class : $modelClass")
     }
 }
